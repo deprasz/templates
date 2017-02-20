@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?page title="Timeout"?>
+<?link rel="stylesheet" type="text/css" href="${environment.getProperty('url.css.login')}" ?>
+<?link rel="stylesheet" type="text/css"	href="/bootstrap/v3/bootstrap/themes/bootstrap-default.min.css"?>
+<?link rel="stylesheet" type="text/css"	href="/bootstrap/v3/assets/css/docs.css" ?>
+<?link rel="stylesheet" type="text/css"	href="/bootstrap/v3/assets/css/pygments-manni.css" ?>
+<?script src="/bootstrap/v3/assets/js/html5shiv.js" if="${zk.ie < 9}" ?>
+<?script src="/bootstrap/v3/assets/js/respond.min.js" if="${zk.ie < 9}"?>
+<?link rel="stylesheet" type="text/css"	href="/asset/css/theme-default.css" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk xmlns:n="native">
+    <n:div class="page-title">
+        <n:h1><n:span class="fa fa-coffee"></n:span> The page or component you request is no longer available.</n:h1>
+        <n:div class="block" >
+	        <n:h3><n:span class="fa fa-frown-o"></n:span>  This is normally caused by timeout,</n:h3>
+        </n:div>
+        <n:div class="block" >
+	        <n:h3>     Opening too many Web pages, or rebooting the server.</n:h3>
+        </n:div>
+        <n:div class="block" >
+	        <n:h3><button label="Relogin" width="100px" class="btn btn-primary btn-rounded" iconSclass="fa fa-sign-in" href="/login"/></n:h3>
+        </n:div>
+    </n:div>
+</zk>

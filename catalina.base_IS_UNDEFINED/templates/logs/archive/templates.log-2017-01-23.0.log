@@ -1,0 +1,6 @@
+[2017-01-23 15:25:22.679][qtp25475035-15][INFO ] i.c.t.c.SessionListenerInit - Session Created
+[2017-01-23 15:30:04.708][qtp446862-24][INFO ] i.c.t.c.SessionListenerInit - Session Created
+[2017-01-23 15:51:47.926][qtp20870975-21][INFO ] i.c.t.c.SessionListenerInit - Session Created
+[2017-01-23 15:55:14.530][qtp21903241-17][INFO ] i.c.t.c.SessionListenerInit - Session Created
+[2017-01-23 16:09:08.968][qtp20994163-20][INFO ] i.c.t.c.SessionListenerInit - Session Created
+[2017-01-23 16:25:57.097][org.eclipse.jetty.server.session.HashSessionManager@18bb3fTimer][INFO ] i.c.t.c.SessionListenerInit - Session Destroyed

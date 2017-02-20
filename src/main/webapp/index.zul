@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?page title="${environment.getProperty('application.title')}"?>
+<?link rel="stylesheet" type="text/css" href="${environment.getProperty('url.css.login')}" ?>
+<?link rel="stylesheet" type="text/css"	href="/bootstrap/v3/bootstrap/themes/bootstrap-default.min.css"?>
+<?link rel="stylesheet" type="text/css"	href="/bootstrap/v3/assets/css/docs.css" ?>
+<?link rel="stylesheet" type="text/css"	href="/bootstrap/v3/assets/css/pygments-manni.css" ?>
+<?script src="/bootstrap/v3/assets/js/html5shiv.js" if="${zk.ie < 9}" ?>
+<?script src="/bootstrap/v3/assets/js/respond.min.js" if="${zk.ie < 9}"?>
+<?link rel="stylesheet" type="text/css"	href="/asset/css/theme-default.css" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk xmlns:n="native">
+    <borderlayout sclass="page-container" apply="${menuModelViewer}">
+        <north border="none" >
+            <n:div class="page-content">
+                <n:ul class="x-navigation x-navigation-horizontal x-navigation-panel">
+                    <n:li class="xn-icon-button">
+                        <a id="aCollapse" style="x-navigation-minimize">
+                        	<n:span class="fa fa-dedent"/>
+                        </a>
+                    </n:li>
+                    <n:li class="xn-search">
+                       	<textbox id="txtSearch" type="text" name="search" placeholder="Search..." width="250px"/>
+                    </n:li>
+                    <n:li class="pull-right">
+                    	
+                    </n:li>
+                </n:ul>
+            </n:div>
+        </north>
+        <west border="none" >
+            <n:div  class="page-content">
+                <navbar id="sidebar" sclass="page-sidebar" orient="vertical" />
+            </n:div>
+        </west>
+        <center id="mainContent" autoscroll="true" border="none">
+            <include id="incMenu" src="form.zul" />
+        </center>
+    </borderlayout>
+</zk>
+
+
+

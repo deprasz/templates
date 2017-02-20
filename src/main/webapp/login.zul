@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?page title="${environment.getProperty('application.title')}"?>
+<?link rel="stylesheet" type="text/css" href="${environment.getProperty('url.css.login')}" ?>
+<?link rel="stylesheet" type="text/css"	href="/bootstrap/v3/bootstrap/themes/bootstrap-default.min.css"?>
+<?link rel="stylesheet" type="text/css"	href="/bootstrap/v3/assets/css/docs.css" ?>
+<?link rel="stylesheet" type="text/css"	href="/bootstrap/v3/assets/css/pygments-manni.css" ?>
+<?script src="/bootstrap/v3/assets/js/html5shiv.js" if="${zk.ie < 9}" ?>
+<?script src="/bootstrap/v3/assets/js/respond.min.js" if="${zk.ie < 9}"?>
+<?link rel="stylesheet" type="text/css"	href="/asset/css/theme-default.css" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk xmlns:n="native">
+    <n:div class="login-container">
+        <n:div class="login-box animated fadeInDown">
+            <n:div class="login-logo"></n:div>
+            <n:div class="login-body">
+                <n:div class="login-title">Welcome, Please login</n:div>
+                <n:form action="${loginUrl}" class="form-horizontal" method="post">
+                    <n:div class="form-group">
+                        <n:div class="col-md-12">
+                            <label style="color:#FD9D9D"
+                                    value="${SPRING_SECURITY_LAST_EXCEPTION.message}"
+                                    if="${execution.getParameter('error') != null}" />
+                            <label style="color:#7EB6F1"
+                                    value="Successfully logged out"
+                                    if="${execution.getParameter('logout') != null}" />
+
+                        </n:div>
+                    </n:div>
+                    <n:div class="form-group">
+                        <n:div class="col-md-12">
+                            <textbox sclass="form-control" placeholder="Username" name="username"/>
+                        </n:div>
+                    </n:div>
+                    <n:div class="form-group">
+                        <n:div class="col-md-12">
+                            <textbox sclass="form-control" type="password" placeholder="Password" name="password"/>
+                            <textbox visible="false"
+                                     value="${_csrf.token}" name="${_csrf.parameterName}" />
+                        </n:div>
+                    </n:div>
+                    <n:div class="form-group">
+                        <n:div class="col-md-6">
+                            <n:a href="/forgot-password" class="btn btn-link btn-block">Forgot your password?</n:a>
+                        </n:div>
+                        <n:div class="col-md-6">
+                            <n:button type="submit" class="btn btn-info btn-block btn-rounded" >Log In 
+                            	<n:span class="fa fa-sign-in"></n:span>
+                            </n:button>
+                        </n:div>
+                    </n:div>
+                    <n:div class="login-subtitle">
+	                    Don't have an account yet ? <a href="/registration">Create an account</a>
+	                </n:div>
+                </n:form>
+            </n:div>
+        </n:div>
+
+    </n:div>
+</zk>
+
+

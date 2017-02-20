@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?link rel="stylesheet" type="text/css" href="${environment.getProperty('url.css.login')}" ?>
+<?link rel="stylesheet" type="text/css"	href="/bootstrap/v3/bootstrap/themes/bootstrap-default.min.css"?>
+<?link rel="stylesheet" type="text/css"	href="/bootstrap/v3/assets/css/docs.css" ?>
+<?link rel="stylesheet" type="text/css"	href="/bootstrap/v3/assets/css/pygments-manni.css" ?>
+<?script src="/bootstrap/v3/assets/js/html5shiv.js" if="${zk.ie < 9}" ?>
+<?script src="/bootstrap/v3/assets/js/respond.min.js" if="${zk.ie < 9}"?>
+<?link rel="stylesheet" type="text/css"	href="/asset/css/theme-default.css" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk xmlns:n="native">
+    <n:div class="page-title">
+    	<div apply="${form}">
+	        <n:h1><n:span class="fa fa-user"></n:span> Welcome, <label id="lblUsername" style="font-weight:bold;font-size: large"/></n:h1>
+	        <n:div class="block" >
+		        <n:div class="row" >
+			        <n:h6><n:span class="fa fa-spinner"></n:span>  Last Login : <label id="lblLastLogin" style="font-weight:bold;"/></n:h6>
+			        <n:h6><n:span class="fa fa-spinner"></n:span>  Last Logout : <label id="lblLastLogout" style="font-weight:bold;"/></n:h6>
+		        </n:div>
+	        </n:div>
+    	</div>
+    </n:div>
+</zk>
