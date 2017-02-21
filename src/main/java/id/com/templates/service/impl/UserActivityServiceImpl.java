@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by edsarp on 2/19/17.
@@ -33,4 +34,14 @@ public class UserActivityServiceImpl implements UserActivityService {
     public UserActivity getLastActivity(String userId, Activity activity) {
         return userActitvityRepo.findOneLastActivityByUserIdAndActiviyKey(userId,activity.getValue());
     }
+
+	@Override
+	public UserActivity getLastLoginActivity(String userId, Activity activity) {
+		return userActitvityRepo.findOneSecondRowActivityByUserIdAndActiviyKey(userId, activity.getValue());
+	}
+
+	@Override
+	public List<UserActivity> findAllActivityBetweenLogin(String userId, Date from, Date to) {
+		return userActitvityRepo.findAllByUserIdAndTimestampBetween(userId, from, to);
+	}
 }

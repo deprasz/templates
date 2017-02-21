@@ -13,8 +13,9 @@ import java.util.Date;
 import java.util.List;
 
 @Repository
-public interface UserRepo extends JpaRepository<User, Long>{
+public interface UserRepo extends JpaRepository<User, String>{
 	User findByUserId(String userId);
+	User findByEmail(String email);
 
 	@Transactional
 	@Modifying

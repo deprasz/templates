@@ -1,6 +1,6 @@
-package id.com.templates.controller.main;
+package id.com.templates.controller.account;
 
-import java.util.Date;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -17,10 +17,11 @@ import org.zkoss.zul.Panel;
 import org.zkoss.zul.Textbox;
 
 import id.com.templates.common.ComponentUtil;
+import id.com.templates.enumz.Activity;
 import id.com.templates.model.auth.User;
-import id.com.templates.model.main.Activity;
 import id.com.templates.security.AuthService;
 import id.com.templates.service.MainService;
+import id.com.templates.service.UserActivityService;
 
 @org.springframework.stereotype.Component
 @Scope("desktop")
@@ -36,6 +37,8 @@ public class ActivatedAccount extends SelectorComposer<Component>{
 	
 	@Autowired MainService mainService;
 	@Autowired AuthService authService;
+	@Autowired UserActivityService userActivityService;
+	@Autowired HttpServletRequest request;
 	User user;
 	
 	public void doAfterCompose(Component comp) throws Exception {
@@ -83,10 +86,9 @@ public class ActivatedAccount extends SelectorComposer<Component>{
 		try {
 			if (user != null) {
 				user.setActivated(true);
-				user.setUpdateBy(authService.userDetails().getUserId());
-				user.setUpdateDate(new Date());
 				mainService.saveUser(user);
-				mainService.saveActivity(createActivity());
+				userActivityService.addActivity(authService.userDetails().getUserId(), 
+						Activity.NON_TRANSACTION, request.getRemoteAddr(), "Activated Account " + ComponentUtil.getValue(txtUserId));
 				ComponentUtil.success(panel, "Account Active");
 			}
 		} catch (Exception e) {
@@ -94,16 +96,6 @@ public class ActivatedAccount extends SelectorComposer<Component>{
 			ComponentUtil.failed(panel, "Failed Activated Account");
 		}
 		doReset();
-	}
-
-	private Activity createActivity(){
-		Activity activity = new Activity();
-		activity.setLogin(authService.userDetails().getLoginTime());
-		activity.setStatus(0);
-		activity.setTimes(new Date());
-		activity.setUserId(authService.userDetails().getUserId());
-		activity.setActivity("Activated Account : " + txtUserId.getValue());
-		return activity;
 	}
 	
 	private void doReset(){

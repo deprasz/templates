@@ -80,6 +80,6 @@ public class SecuritiesConfiguration extends WebSecurityConfigurerAdapter{
                 .sessionManagement()
                 .maximumSessions(1)
                 .maxSessionsPreventsLogin(true)
-                .expiredUrl("/login?expired");
+                .expiredUrl("/timeout");
     }
 }

@@ -29,8 +29,6 @@ public class AuthServiceImpl implements AuthService{
 	private UserRepo userRepo;
 	@Autowired
 	private MenuRepo menuRepo;
-	@Autowired
-	private UserActivityService userActivityService;
 
 	@Override
 	public UserDetails loadUserByUsername(String user) throws UsernameNotFoundException {
@@ -59,11 +57,9 @@ public class AuthServiceImpl implements AuthService{
 			return details;
 
 		}else{
-			throw new UsernameNotFoundException("Invalid User Name and Password");
+			throw new UsernameNotFoundException("Invalid username or password");
 		}
 	}
-
-
 
 	public List<Menu> findMenuItems(String roleId){
 		return menuRepo.findMenuByRoleId(roleId);

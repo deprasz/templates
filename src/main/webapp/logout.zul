@@ -28,7 +28,7 @@
 		                             <n:span class="fa fa-spinner"></n:span>  Last Logout : <label id="lblLastLogout" style="font-weight:bold;"/>
 		                         </n:div>
 		                     </n:div>
-		                    <!-- <n:div class="form-group">
+		                    <n:div class="form-group">
 		                         <n:div class="col-md-12">
 		                             <listbox id="list" vflex="true" mold="paging" pageSize="10">
 										<listhead>
@@ -37,7 +37,7 @@
 										</listhead>
 									</listbox>
 		                         </n:div>
-		                     </n:div>-->
+		                     </n:div>
 						</n:form>
 					</n:div>
 				</n:div>

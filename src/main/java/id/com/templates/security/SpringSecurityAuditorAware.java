@@ -14,7 +14,11 @@ public class SpringSecurityAuditorAware implements AuditorAware<String> {
 
     @Override
     public String getCurrentAuditor() {
-        String userId = authService.userDetails().getUserId();
-        return (userId != null ? userId : "system");
+    	try {
+    		String userId = authService.userDetails().getUserId();
+    		return (userId != null ? userId : "system");
+		} catch (Exception e) {
+			return "system";
+		}
     }
 }

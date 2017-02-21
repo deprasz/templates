@@ -145,4 +145,9 @@ public class MainServiceImpl implements MainService{
 	public void lockedUserLogin(String userId) {
 		userRepo.updateLockedByUserId(userId);
 	}
+
+	@Override
+	public User findUserByEmail(String email) {
+		return userRepo.findByEmail(email);
+	}
 }

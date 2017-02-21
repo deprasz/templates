@@ -1,6 +1,4 @@
-package id.com.templates.controller.main;
-
-import java.util.Date;
+package id.com.templates.controller.account;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -19,6 +17,7 @@ import org.zkoss.zul.Textbox;
 import id.com.templates.common.ComponentUtil;
 import id.com.templates.common.Cryptograph;
 import id.com.templates.common.Regex;
+import id.com.templates.enumz.Role;
 import id.com.templates.model.auth.User;
 import id.com.templates.service.MainService;
 
@@ -64,22 +63,25 @@ public class Register extends SelectorComposer<Component>{
 		try {
 			User user = mainService.findUserById((String) ComponentUtil.getValue(txtUserId));
 			if (user == null) {
-				user = new User();
-				user.setUserId((String) ComponentUtil.getValue(txtUserId));
-				user.setUserName((String) ComponentUtil.getValue(txtName));
-				user.setPassword(Cryptograph.bEncrypt(mainService.createPassword()));
-				user.setActivated(false);
-				user.setEmail((String) ComponentUtil.getValue(txtEmail));
-				user.setActivationKey((String) ComponentUtil.getValue(txtActKey));
-				user.setResetKey((String) ComponentUtil.getValue(txtSecret));
-				user.setFailedLogin(0);
-				user.setLimitFailed(6);
-				user.setLanguage("0");
-				user.setRoleId("00");
-				user.setCreateBy((String) ComponentUtil.getValue(txtUserId));
-				user.setCreateDate(new Date());
-				mainService.saveUser(user);
-				ComponentUtil.success(panel, "Create Account Success, Please Check Your Email.");
+				if (mainService.findUserByEmail((String) ComponentUtil.getValue(txtEmail)) != null) {
+					ComponentUtil.failed(panel, "Email Already Use");
+				}else{
+					user = new User();
+					user.setUserId((String) ComponentUtil.getValue(txtUserId));
+					user.setUserName((String) ComponentUtil.getValue(txtName));
+					user.setPassword(Cryptograph.bEncrypt(mainService.createPassword()));
+					user.setLocked(false);
+					user.setActivated(false);
+					user.setEmail((String) ComponentUtil.getValue(txtEmail));
+					user.setActivationKey((String) ComponentUtil.getValue(txtActKey));
+					user.setResetKey((String) ComponentUtil.getValue(txtSecret));
+					user.setFailedLogin(0);
+					user.setLimitFailed(6);
+					user.setLanguage("0");
+					user.setRoleId(Role.CUSTOMER.getValue());
+					mainService.saveUser(user);
+					ComponentUtil.success(panel, "Create Account Success, Please Check Your Email.");
+				}
 			}else{
 				ComponentUtil.failed(panel, "Already Account");
 			}

@@ -1,6 +1,4 @@
-package id.com.templates.controller.main;
-
-import java.util.Date;
+package id.com.templates.controller.account;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -64,8 +62,6 @@ public class ForgotPassword extends SelectorComposer<Component>{
 					user.setPassword(Cryptograph.bEncrypt(mainService.createPassword()));
 					user.setFailedLogin(0);
 					user.setLimitFailed(6);
-					user.setUpdateBy((String) ComponentUtil.getValue(txtUserId));
-					user.setUpdateDate(new Date());
 					mainService.saveUser(user);
 					ComponentUtil.success(panel, "Reset Password Success, Please Check Your Email.");
 				}else{

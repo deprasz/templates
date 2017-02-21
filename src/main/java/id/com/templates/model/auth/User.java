@@ -4,18 +4,24 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
-import id.com.templates.model.BaseEntity;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import id.com.templates.model.AbstractAuditingEntity;
 
 @Entity
 @Table(name="sys_user")
-public class User extends BaseEntity{
+@EntityListeners(AuditingEntityListener.class)
+public class User extends AbstractAuditingEntity{
 
 	/**
 	 *
 	 */
 	private static final long serialVersionUID = -1809090182439279014L;
+	@Id
 	@Column(name="user_id")
 	private String userId;
 	@Column(name="username")
@@ -40,14 +46,6 @@ public class User extends BaseEntity{
 	private String activationKey;
 	@Column(name="reset_key")
 	private String resetKey;
-	@Column(name="created_by")
-	private String createBy;
-	@Column(name="updated_by")
-	private String updateBy;
-	@Column(name="created_date")
-	private Date createDate;
-	@Column(name="updated_date")
-	private Date updateDate;
 	@Column(name="reset_date")
 	private Date resetDate;
 
@@ -125,30 +123,6 @@ public class User extends BaseEntity{
 	}
 	public void setResetKey(String resetKey) {
 		this.resetKey = resetKey;
-	}
-	public String getCreateBy() {
-		return createBy;
-	}
-	public void setCreateBy(String createBy) {
-		this.createBy = createBy;
-	}
-	public String getUpdateBy() {
-		return updateBy;
-	}
-	public void setUpdateBy(String updateBy) {
-		this.updateBy = updateBy;
-	}
-	public Date getCreateDate() {
-		return createDate;
-	}
-	public void setCreateDate(Date createDate) {
-		this.createDate = createDate;
-	}
-	public Date getUpdateDate() {
-		return updateDate;
-	}
-	public void setUpdateDate(Date updateDate) {
-		this.updateDate = updateDate;
 	}
 	public Date getResetDate() {
 		return resetDate;

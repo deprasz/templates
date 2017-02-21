@@ -30,9 +30,17 @@ public class Form extends SelectorComposer<Component>{
 		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss.SSS");
 		UserDetail user = authService.userDetails();
 		lblUsername.setValue(user.getUsername());
-		UserActivity userActivityLogin= userActivityService.getLastActivity(user.getUserId(), Activity.LOGIN);
-		UserActivity userActivityLogout= userActivityService.getLastActivity(user.getUserId(), Activity.LOGIN);
-		lblLastLogin.setValue(userActivityLogin.getTimestamp() == null ? "none" : sdf.format(userActivityLogin.getTimestamp()));
-		lblLastLogout.setValue(userActivityLogout.getTimestamp() == null ? "none" : sdf.format(userActivityLogout.getTimestamp()));
+		UserActivity userActivityLogin = userActivityService.getLastLoginActivity(user.getUserId(), Activity.LOGIN);
+		UserActivity userActivityLogout = userActivityService.getLastActivity(user.getUserId(), Activity.LOGOUT);
+		if (userActivityLogin != null && userActivityLogin.getTimestamp() != null) {
+			lblLastLogin.setValue(sdf.format(userActivityLogin.getTimestamp()));
+		}else{
+			lblLastLogin.setValue("none");
+		}
+		if (userActivityLogout != null && userActivityLogout.getTimestamp() != null) {
+			lblLastLogout.setValue(sdf.format(userActivityLogout.getTimestamp()));
+		}else{
+			lblLastLogout.setValue("none");
+		}
 	}
 }

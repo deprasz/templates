@@ -42,7 +42,7 @@ public class AuthenticationEventListener implements AuthenticationEventPublisher
     @Override
     public void publishAuthenticationSuccess(Authentication authentication) {
         UserDetail userDetail= (UserDetail) authentication.getPrincipal();
-        userActivityService.addActivity(userDetail.getUserId(), Activity.LOGIN,request.getRemoteAddr(),"Login successfully");
+        userActivityService.addActivity(userDetail.getUserId(), Activity.LOGIN,request.getRemoteAddr(), "Login successfully");
         mainService.updateFailAttempts(0,authentication.getName());
 
     }
@@ -52,19 +52,20 @@ public class AuthenticationEventListener implements AuthenticationEventPublisher
 
         User user = mainService.findUserById(authentication.getName());
         if(user!=null){
-            UserActivity userActivity=userActivityService.getLastActivity(authentication.getName(),Activity.LOGIN);
+            UserActivity userActivity = userActivityService.getLastActivity(authentication.getName(),Activity.LOGIN);
             if(!user.isActivated()){
-             throw  new BadCredentialsException("Your user account was not activated");
+            	throw  new BadCredentialsException("Your user account was not activated");
             }
             if(user.isLocked()){
                 throw new BadCredentialsException("Your user account is locked!");
             }
-            userActivityService.addActivity(authentication.getName(), Activity.LOGIN,request.getRemoteAddr(),e.getMessage());
-            int failedLogin=user.getFailedLogin()+1;
+            userActivityService.addActivity(authentication.getName(), Activity.LOGIN,request.getRemoteAddr(), e.getMessage());
+            int failedLogin = user.getFailedLogin()+1;
             mainService.updateFailAttempts(failedLogin,authentication.getName());
-            if(failedLogin >=user.getLimitFailed()){
+            if(failedLogin >= user.getLimitFailed()){
                 mainService.lockedUserLogin(authentication.getName());
-                throw new LockedException("Your user account is locked! <br>Last Attempted on : "+df.format(userActivity.getTimestamp()));
+                throw new LockedException("Your user account is locked! <br>Last Attempted on : " +
+                		df.format(userActivity.getTimestamp()));
 
             }
         }

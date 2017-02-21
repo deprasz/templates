@@ -32,6 +32,7 @@ public interface MainService {
 
 	void saveUser(User user);
 	User findUserById(String userId);
+	User findUserByEmail(String email);
 
 	void updateFailAttempts(Integer attempt,String userId);
 	void lockedUserLogin(String userId);

@@ -32,13 +32,13 @@ public class IndexController {
 
     @RequestMapping("/registration")
     public ModelAndView register(Model model){
-    	ModelAndView mav = new ModelAndView("/page/menu/Register.zul");
+    	ModelAndView mav = new ModelAndView("/page/account/Register.zul");
         return mav;
     }
 
     @RequestMapping("/forgot-password")
     public ModelAndView forgot(Model model){
-    	ModelAndView mav = new ModelAndView("/page/menu/ForgotPassword.zul");
+    	ModelAndView mav = new ModelAndView("/page/account/ForgotPassword.zul");
         return mav;
     }
 
@@ -48,5 +48,11 @@ public class IndexController {
     	view.setViewName("/error.zul");
         return view;
     }
-
+    
+    @RequestMapping("/timeout")
+    public ModelAndView timeout(){
+    	ModelAndView view = new ModelAndView();
+    	view.setViewName("/timeout.zul");
+        return view;
+    }
 }

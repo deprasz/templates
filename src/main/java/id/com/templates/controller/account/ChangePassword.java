@@ -1,6 +1,6 @@
-package id.com.templates.controller.main;
+package id.com.templates.controller.account;
 
-import java.util.Date;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -19,10 +19,11 @@ import org.zkoss.zul.Textbox;
 import id.com.templates.common.ComponentUtil;
 import id.com.templates.common.Cryptograph;
 import id.com.templates.common.Regex;
+import id.com.templates.enumz.Activity;
 import id.com.templates.model.auth.User;
-import id.com.templates.model.main.Activity;
 import id.com.templates.security.AuthService;
 import id.com.templates.service.MainService;
+import id.com.templates.service.UserActivityService;
 
 @org.springframework.stereotype.Component
 @Scope("desktop")
@@ -37,7 +38,9 @@ public class ChangePassword extends SelectorComposer<Component>{
 	
 	@Autowired MainService mainService;
 	@Autowired AuthService authService;
-	
+	@Autowired UserActivityService userActivityService;
+	@Autowired HttpServletRequest request;
+
 	public void doAfterCompose(Component comp) throws Exception {
 		super.doAfterCompose(comp);
 		btnSave.addEventListener(Events.ON_CLICK, new EventListener<Event>() {
@@ -67,10 +70,9 @@ public class ChangePassword extends SelectorComposer<Component>{
 			if (user != null) {
 				if (Cryptograph.bEncryptMatch(txtOldPassword.getValue(), user.getPassword())) {
 					user.setPassword(Cryptograph.bEncrypt(txtNewPassword.getValue()));
-					user.setUpdateBy(authService.userDetails().getUserId());
-					user.setUpdateDate(new Date());
 					mainService.saveUser(user);
-					mainService.saveActivity(createActivity());
+					userActivityService.addActivity(authService.userDetails().getUserId(), 
+							Activity.NON_TRANSACTION, request.getRemoteAddr(), "Change Password");
 					ComponentUtil.success(panel, "Change password success");
 				}else{
 					ComponentUtil.failed(panel, "Old password failed");
@@ -83,16 +85,6 @@ public class ChangePassword extends SelectorComposer<Component>{
 			ComponentUtil.failed(panel, "Failed Change Password");
 		}
 		doReset();
-	}
-
-	private Activity createActivity(){
-		Activity activity = new Activity();
-		activity.setLogin(authService.userDetails().getLoginTime());
-		activity.setStatus(0);
-		activity.setTimes(new Date());
-		activity.setUserId(authService.userDetails().getUserId());
-		activity.setActivity("Change Password");
-		return activity;
 	}
 	
 	private void doReset(){
