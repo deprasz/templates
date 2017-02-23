@@ -7,7 +7,7 @@
 <?link rel="stylesheet" type="text/css"	href="/bootstrap/v3/assets/css/pygments-manni.css" ?>
 <?script src="/bootstrap/v3/assets/js/html5shiv.js" if="${zk.ie < 9}" ?>
 <?script src="/bootstrap/v3/assets/js/respond.min.js" if="${zk.ie < 9}"?>
-<?link rel="stylesheet" type="text/css"	href="/asset/css/theme-default.css" ?>
+<?link rel="stylesheet" type="text/css"	href="/asset/css/index-default.css" ?>
 <?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
 <zk xmlns:n="native">
     <borderlayout sclass="page-container" apply="${menuModelViewer}">
@@ -23,7 +23,7 @@
                        	<textbox id="txtSearch" type="text" name="search" placeholder="Search..." width="250px"/>
                     </n:li>
                     <n:li class="pull-right">
-                    	
+                    	<image src="/asset/image/logo.png"></image>
                     </n:li>
                 </n:ul>
             </n:div>

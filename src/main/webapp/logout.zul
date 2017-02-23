@@ -9,42 +9,47 @@
 <?link rel="stylesheet" type="text/css"	href="/asset/css/theme-default.css" ?>
 <?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
 <zk xmlns:n="native">
-	<window id="wnd" border="none" width="450px" position="center" style="position:absolute;" mode="overlapped" apply="${logout}">
-		<n:div class="page-title">
-			<n:h4><n:span class="fa fa-smile-o"></n:span> Thanks for used this application</n:h4>
-		</n:div>
-		<n:div class="page-content-wrap" vflex="true">
+<!-- <n:div class="login-container"> -->
+	<window id="wnd" border="none" width="500px" position="center"  mode="overlapped" apply="${logout}" >
 			<n:div class="panels-body" vflex="true">
-				<n:div class="row" vflex="true">
-					<n:div class="block" >
-						<n:form class="form-horizontal" role="form" hflex="true">
-							<n:div class="form-group">
-		                         <n:div class="col-md-12">
-		                             <n:span class="fa fa-spinner"></n:span>  Last Login : <label id="lblLastLogin" style="font-weight:bold;"/>
-		                         </n:div>
-		                     </n:div>
-		                     <n:div class="form-group">
-		                         <n:div class="col-md-12">
-		                             <n:span class="fa fa-spinner"></n:span>  Last Logout : <label id="lblLastLogout" style="font-weight:bold;"/>
-		                         </n:div>
-		                     </n:div>
-		                    <n:div class="form-group">
-		                         <n:div class="col-md-12">
-		                             <listbox id="list" vflex="true" mold="paging" pageSize="10">
-										<listhead>
-											<listheader label="Activity" />
-											<listheader label="Time" width="150px" align="center"/>
-										</listhead>
-									</listbox>
-		                         </n:div>
-		                     </n:div>
-						</n:form>
+				<n:div class="panel-heading ui-draggable-handle">
+					<n:h4>
+					<image src="/asset/image/logo.png"/>
+						Logout Successfully
+					</n:h4>
+				</n:div>
+				<n:div class="panels-body" vflex="true">
+					<n:div class="row" vflex="true">
+						<n:div class="block" >
+							<n:form class="form-horizontal" role="form" hflex="true">
+								<n:div class="form-group">
+			                         <n:div class="col-md-12">
+			                             <n:span class="fa fa-spinner"></n:span>  Last Login : <label id="lblLastLogin" style="font-weight:bold;"/>
+			                         </n:div>
+			                     </n:div>
+			                     <n:div class="form-group">
+			                         <n:div class="col-md-12">
+			                             <n:span class="fa fa-spinner"></n:span>  Last Logout : <label id="lblLastLogout" style="font-weight:bold;"/>
+			                         </n:div>
+			                     </n:div>
+			                    <n:div class="form-group">
+			                         <n:div class="col-md-12">
+			                             <listbox id="list" vflex="true" mold="paging" pageSize="10">
+											<listhead>
+												<listheader label="Activity" />
+												<listheader label="Time" width="150px" align="center"/>
+											</listhead>
+										</listbox>
+			                         </n:div>
+			                     </n:div>
+							</n:form>
+						</n:div>
 					</n:div>
 				</n:div>
+				<n:div class="panels-footer" vflex="true">
+	  				<button id="btnReset" label="Relogin" width="100px" class="btn btn-warning btn-rounded" iconSclass="fa fa-sign-in" href="/login"/>
+	    		</n:div>
 			</n:div>
-			<n:div class="panels-footer" vflex="true">
-  				<button id="btnReset" label="Relogin" width="100px" class="btn btn-warning btn-rounded" iconSclass="fa fa-sign-in" href="/login"/>
-    		</n:div>
-		</n:div>
 	</window>
+<!-- 	</n:div> -->
 </zk>

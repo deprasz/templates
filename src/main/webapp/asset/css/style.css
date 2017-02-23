@@ -11,12 +11,12 @@
 div.z-listbox-header th.z-listheader {
 	font-color: white !important;
 	font-weight: bold;
-	background: -webkit-gradient(linear,center top,center bottom,from(#1d2127),to(#1d2127));
-	background: -webkit-linear-gradient(center top,#1d2127,#1d2127);
-	background: -moz-linear-gradient(center top,#1d2127,#1d2127);
-	background: -o-linear-gradient(center top,#1d2127,#1d2127);
-	background: -ms-linear-gradient(center top,#1d2127,#1d2127);
-	background: linear-gradient(center top,#1d2127,#1d2127);
+	background: -webkit-gradient(linear,center top,center bottom,from(rgba(254, 159, 27, 0.8)),to(rgba(254, 159, 27, 0.8)));
+	background: -webkit-linear-gradient(center top,rgba(254, 159, 27, 0.8),rgba(254, 159, 27, 0.8));
+	background: -moz-linear-gradient(center top,rgba(254, 159, 27, 0.8),rgba(254, 159, 27, 0.8));
+	background: -o-linear-gradient(center top,rgba(254, 159, 27, 0.8),rgba(254, 159, 27, 0.8));
+	background: -ms-linear-gradient(center top,rgba(254, 159, 27, 0.8),rgba(254, 159, 27, 0.8));
+	background: linear-gradient(center top,rgba(254, 159, 27, 0.8),rgba(254, 159, 27, 0.8));
 }
 
 div.z-listheader-content {
