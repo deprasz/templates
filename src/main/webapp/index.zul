@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?page title="${environment.getProperty('application.title')}"?>
 <?link rel="stylesheet" type="text/css" href="${environment.getProperty('url.css.login')}" ?>
+<?link rel="stylesheet" type="text/css" href="/asset/css/style.css" ?>
 <?link rel="stylesheet" type="text/css"	href="/bootstrap/v3/bootstrap/themes/bootstrap-default.min.css"?>
 <?link rel="stylesheet" type="text/css"	href="/bootstrap/v3/assets/css/docs.css" ?>
 <?link rel="stylesheet" type="text/css"	href="/bootstrap/v3/assets/css/pygments-manni.css" ?>

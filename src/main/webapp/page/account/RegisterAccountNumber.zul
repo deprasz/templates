@@ -9,9 +9,9 @@
 <?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
 <zk xmlns:n="native">
     <n:div class="page-title">
-        <n:h2><n:span class="fa fa-edit"></n:span> Menu Configuration</n:h2>
+        <n:h2><n:span class="fa fa-edit"></n:span> Register Account Number</n:h2>
     </n:div>
-    <borderlayout id="wnd" vflex="true" width="100%" apply="${menuConfiguration}">
+    <borderlayout id="wnd" vflex="true" width="100%" apply="${registerAccountNumber}">
     	<center hflex="true" vflex="true" autoscroll="true">
     		<n:div class="page-content-wrap" vflex="true">
 	    		<panel id="panel" vflex="true" mold="bs">
@@ -22,46 +22,43 @@
 				    				<n:div class="block" >
 				    					<n:form class="form-horizontal" role="form" hflex="true">
 				    						<n:div class="form-group">
-					                            <n:label class="col-md-3 control-label">Menu Id</n:label>
+					                            <n:label class="col-md-3 control-label">User Id</n:label>
 					                            <n:div class="col-md-9">
-					                                <textbox id="txtMenuId" width="70px" maxlength="6"/>
+					                                <textbox id="txtUserId" width="150px" maxlength="10"/>
+					                                <button id="btnCheckUser" label="Check" width="100px" class="btn btn-warning btn-rounded" iconSclass="fa fa-spinner"/>
 					                            </n:div>
 					                        </n:div>
 					                        <n:div class="form-group">
-					                            <n:label class="col-md-3 control-label">Menu Name</n:label>
+					                            <n:label class="col-md-3 control-label">Username</n:label>
 					                            <n:div class="col-md-9">
-					                                <textbox id="txtMenuName" width="150px"/>
+					                                <textbox id="txtUsername" width="150px" disabled="true"/>
 					                            </n:div>
 					                        </n:div>
 					                        <n:div class="form-group">
-					                            <n:label class="col-md-3 control-label">Menu Parent</n:label>
+					                            <n:label class="col-md-3 control-label">Account Number</n:label>
 					                            <n:div class="col-md-9">
-					                                <textbox id="txtMenuParent" width="70px" maxlength="6"/>
+					                                <textbox id="txtAccnbr" width="150px" disabled="true"/>
+					                                <button id="btnCheckAcc" label="Check" width="100px" class="btn btn-warning btn-rounded" iconSclass="fa fa-spinner" visible="false"/>
 					                            </n:div>
 					                        </n:div>
 					                        <n:div class="form-group">
-					                            <n:label class="col-md-3 control-label">URL</n:label>
+					                            <n:label class="col-md-3 control-label">Account Name</n:label>
 					                            <n:div class="col-md-9">
-					                                <textbox id="txtUrl" width="250px"/>
+					                                <textbox id="txtAccname" width="150px" disabled="true"/>
+					                            </n:div>
+					                        </n:div>
+					                        <n:div class="form-group">
+					                        	<n:div class="col-md-3 control-label">
+						                            <button id="btnSave" label="Save" width="100px" class="btn btn-info btn-rounded" iconSclass="fa fa-floppy-o" disabled="true"/>
+					                            </n:div>
+					                            <n:div class="col-md-1 control-label">
+					                                <button id="btnReset" label="Reset" width="100px" class="btn btn-primary btn-rounded" iconSclass="fa fa-refresh"/>
 					                            </n:div>
 					                        </n:div>
 				    					</n:form>
 				    				</n:div>
 				    			</n:div>
-				    			<n:div class="col-md-6" >
-				    				<listbox id="list" vflex="true" mold="paging" pageSize="10">
-										<listhead>
-											<listheader label="Menu Id" width="70px"/>
-											<listheader label="Menu Name"/>
-										</listhead>
-									</listbox>
-				    			</n:div>
 				    		</n:div>
-			    		</n:div>
-			    		<n:div class="panels-footer" vflex="true">
-			    			<button id="btnSave" label="Save" width="100px" class="btn btn-info btn-rounded active" iconSclass="fa fa-floppy-o"/>
-	    					<button id="btnDelete" label="Delete" width="100px" class="btn btn-danger btn-rounded" iconSclass="fa fa-eraser"/>
-	    					<button id="btnReset" label="Reset" width="100px" class="btn btn-primary btn-rounded" iconSclass="fa fa-refresh"/>
 			    		</n:div>
 	    			</panelchildren>
 	    		</panel>

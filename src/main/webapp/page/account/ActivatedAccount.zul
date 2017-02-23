@@ -9,7 +9,7 @@
 <?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
 <zk xmlns:n="native">
     <n:div class="page-title">
-        <n:h2><n:span class="fa fa-edit"></n:span> Account Activation</n:h2>
+        <n:h2><n:span class="fa fa-unlock-alt"></n:span> Account Activation</n:h2>
     </n:div>
     <borderlayout id="wnd" vflex="true" width="100%" apply="${activatedAccount}">
     	<center hflex="true" vflex="true" autoscroll="true">

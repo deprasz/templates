@@ -30,13 +30,13 @@
 				    					</n:form>
 				    				</n:div>
 				    				<n:div class="block" >
-				    					<tree id="tree" vflex="true" checkmark="true" multiple="true"/>
+				    					<tree id="tree" vflex="true" checkmark="true" multiple="true" visible="false"/>
 				    				</n:div>
 				    			</n:div>
 				    		</n:div>
 			    		</n:div>
 			    		<n:div class="panels-footer" vflex="true">
-			    			<button id="btnSave" label="Save" width="100px" class="btn btn-info btn-rounded" iconSclass="fa fa-floppy-o"/>
+			    			<button id="btnSave" label="Save" width="100px" class="btn btn-info btn-rounded active" iconSclass="fa fa-floppy-o"/>
 	    					<button id="btnReset" label="Reset" width="100px" class="btn btn-primary btn-rounded" iconSclass="fa fa-refresh"/>
 			    		</n:div>
 	    			</panelchildren>

@@ -28,7 +28,7 @@ public interface UserRepo extends JpaRepository<User, String>{
 	void updateLockedByUserId(@Param("userId") String userId);
 
 
-	@Query(value = "select id, a.user_id, username, password, email, login_failed, limit_failed, " +
+	@Query(value = "select a.user_id, username, password, email, login_failed, limit_failed, " +
 			"locked, activated, role, lang_key, activation_key, reset_key, " +
 			"created_by, created_date, reset_date, updated_by, updated_date FROM sys_user a " +
 			"inner join ( " +

@@ -47,7 +47,7 @@
 				    		</n:div>
 			    		</n:div>
 			    		<n:div class="panels-footer" vflex="true">
-			    			<button id="btnSave" label="Save" width="100px" class="btn btn-info btn-rounded" iconSclass="fa fa-floppy-o"/>
+			    			<button id="btnSave" label="Save" width="100px" class="btn btn-info btn-rounded active" iconSclass="fa fa-floppy-o"/>
 	    					<button id="btnDelete" label="Delete" width="100px" class="btn btn-danger btn-rounded" iconSclass="fa fa-eraser"/>
 	    					<button id="btnReset" label="Reset" width="100px" class="btn btn-primary btn-rounded" iconSclass="fa fa-refresh"/>
 			    		</n:div>

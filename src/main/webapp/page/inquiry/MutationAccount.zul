@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?link rel="stylesheet" type="text/css" href="${environment.getProperty('url.css.login')}" ?>
+<?link rel="stylesheet" type="text/css"	href="/bootstrap/v3/bootstrap/themes/bootstrap-default.min.css"?>
+<?link rel="stylesheet" type="text/css"	href="/bootstrap/v3/assets/css/docs.css" ?>
+<?link rel="stylesheet" type="text/css"	href="/bootstrap/v3/assets/css/pygments-manni.css" ?>
+<?script src="/bootstrap/v3/assets/js/html5shiv.js" if="${zk.ie < 9}" ?>
+<?script src="/bootstrap/v3/assets/js/respond.min.js" if="${zk.ie < 9}"?>
+<?link rel="stylesheet" type="text/css"	href="/asset/css/theme-default.css" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk xmlns:n="native">
+    <n:div class="page-title">
+        <n:h2><n:span class="fa fa-money"></n:span> Mutation</n:h2>
+    </n:div>
+    <borderlayout id="wnd" vflex="true" width="100%" apply="${mutationAccount}">
+    	<center hflex="true" vflex="true" autoscroll="true">
+    		<n:div class="page-content-wrap" vflex="true">
+	    		<n:div class="row" vflex="true">
+    				<n:div class="col-md-12" vflex="true">
+		    			<n:div class="panel panel-default" vflex="true">
+		    				<n:div class="panels-body" vflex="true">
+	    						<n:div class="block" >
+	    							<n:form class="form-horizontal" role="form" hflex="true">
+	    								<n:div class="form-group">
+				                            <n:label class="col-md-2 control-label">Account Number</n:label>
+				                            <n:div class="col-md-9">
+				                                <combobox id="cmbAccount" width="250px" placeholder="Please Select"/>
+				                            </n:div>
+				                        </n:div>
+				                        <n:div class="form-group">
+				                            <n:label class="col-md-2 control-label">Choice</n:label>
+				                            <n:div class="col-md-10">
+				                                <radiogroup id="rdFind">
+				                                	<radio value="0" label="Last Transaction"/>
+				                                	<radio value="1" label="Periode"/>
+				                                </radiogroup>
+				                            </n:div>
+				                        </n:div>
+	    							</n:form>
+	    						</n:div>
+	    					</n:div>
+	    				</n:div>
+	    				<n:div class="panel panel-default" vflex="true">
+		    				<n:div class="panels-body" vflex="true">
+	    						<n:div class="block" >
+	    							<n:form class="form-horizontal" role="form" hflex="true">
+	    								<n:div class="form-group">
+	    									<n:label class="col-md-2 control-label">From</n:label>
+				                            <n:div class="col-md-9">
+				                                <datebox id="dtFrom" format="dd MMM yyyy" width="150px" style="text-align:center"/>
+				                            </n:div>
+				                        </n:div>
+				                        <n:div class="form-group">
+	    									<n:label class="col-md-2 control-label">To</n:label>
+				                            <n:div class="col-md-9">
+				                                <datebox id="dtTo" format="dd MMM yyyy" width="150px" style="text-align:center"/>
+				                            </n:div>
+				                        </n:div>
+	    							</n:form>
+	    						</n:div>
+	    					</n:div>
+	    				</n:div>
+	    				<n:div class="panel panel-default" vflex="true">
+		    				<n:div class="panels-body" vflex="true">
+	    						<n:div class="block" >
+	    							<n:form class="form-horizontal" role="form" hflex="true">
+	    								<n:div class="form-group">
+	    									<n:label class="col-md-2 control-label">Select</n:label>
+				                            <n:div class="col-md-9">
+				                                <combobox id="cmbLast" width="250px" placeholder="Please Select">
+				                                	<comboitem value="5" label="5 Last Transaction"/>
+				                                	<comboitem value="10" label="10 Last Transaction"/>
+				                                	<comboitem value="15" label="15 Last Transaction"/>
+				                                </combobox>
+				                            </n:div>
+				                        </n:div>
+	    							</n:form>
+	    						</n:div>
+	    					</n:div>
+	    				</n:div>
+	    				<n:div class="panels-footer" vflex="true">
+			    			<button id="btnFind" label="Find" width="100px" class="btn btn-warning btn-rounded" iconSclass="fa fa-search"/>
+	    					<button id="btnReset" label="Reset" width="100px" class="btn btn-primary btn-rounded" iconSclass="fa fa-refresh"/>
+			    		</n:div>
+	    			</n:div>
+    			</n:div>
+    		</n:div>
+    	</center>
+    </borderlayout>
+</zk>

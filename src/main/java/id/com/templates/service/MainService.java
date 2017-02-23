@@ -1,8 +1,12 @@
 package id.com.templates.service;
 
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
+import id.com.templates.model.account.Account;
+import id.com.templates.model.account.AccountUser;
+import id.com.templates.model.account.Transaction;
 import id.com.templates.model.auth.User;
 import id.com.templates.model.main.Activity;
 import id.com.templates.model.main.Role;
@@ -40,5 +44,15 @@ public interface MainService {
 	void saveActivity(Activity activity);
 	void updateLogoutActivity(Date logout, String userId);
 	List<Activity> findAllActivity(String userId);
-
+	
+	Account findAccountById(String accnbr);
+	
+	void saveAccountUser(AccountUser accountUser);
+	AccountUser findAccountUserById(String userId, String account);
+	List<AccountUser> findAllAccountUserById(String userId);
+	
+	BigDecimal findBalanceAccount(String account);
+	
+	List<Transaction> findAllTransactionByLimit(String account, String limit);
+	List<Transaction> findAllTransactionByPeriode(String account, String from, String end);
 }

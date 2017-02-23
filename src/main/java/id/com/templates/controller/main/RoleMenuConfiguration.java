@@ -103,6 +103,7 @@ public class RoleMenuConfiguration extends SelectorComposer<Component>{
 		tree.clear();
 		tree.getChildren().clear();
 		tree.invalidate();
+		tree.setVisible(true);
 		Treechildren root = new Treechildren();
 		if (ComponentUtil.getValue(cmbRoleId) != null) {
 			List<Menus> listMenu = services.findAllMenusById((String) ComponentUtil.getValue(cmbRoleId));
@@ -172,6 +173,7 @@ public class RoleMenuConfiguration extends SelectorComposer<Component>{
 		ComponentUtil.clear(wnd);
 		tree.clear();
 		tree.getChildren().clear();
+		tree.setVisible(false);
 		cmbRoleId.setSelectedIndex(-1);
 	}
 }

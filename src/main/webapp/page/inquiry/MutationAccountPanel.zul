@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?link rel="stylesheet" type="text/css" href="${environment.getProperty('url.css.login')}" ?>
+<?link rel="stylesheet" type="text/css"	href="/bootstrap/v3/bootstrap/themes/bootstrap-default.min.css"?>
+<?link rel="stylesheet" type="text/css"	href="/bootstrap/v3/assets/css/docs.css" ?>
+<?link rel="stylesheet" type="text/css"	href="/bootstrap/v3/assets/css/pygments-manni.css" ?>
+<?script src="/bootstrap/v3/assets/js/html5shiv.js" if="${zk.ie < 9}" ?>
+<?script src="/bootstrap/v3/assets/js/respond.min.js" if="${zk.ie < 9}"?>
+<?link rel="stylesheet" type="text/css"	href="/asset/css/theme-default.css" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk xmlns:n="native">
+	<window width="100%" height="100%" id="wnd" apply="${mutationAccountPanel}">
+	    <n:div class="page-title">
+	        <n:h2><n:span class="fa fa-money"></n:span> Mutation</n:h2>
+	    </n:div>
+	    <borderlayout vflex="true" width="100%" >
+	    	<center hflex="true" vflex="true" autoscroll="true">
+	    		<n:div class="page-content-wrap" vflex="true">
+		    		<n:div class="panels-body" vflex="true">
+			    		<n:div class="row" vflex="true">
+			    			<n:div class="col-md-12">
+			    				<n:div class="block" >
+			    				
+				    				<n:form class="form-horizontal" role="form" hflex="true">
+				    					<n:div class="form-group">
+				    						<listbox id="list" vflex="true" mold="paging" pageSize="10">
+												<listhead>
+													<listheader label="Account Number" width="150px"/>
+													<listheader label="Message" />
+													<listheader label="Debet" width="150px" align="right"/>
+													<listheader label="Credit" width="150px" align="right"/>
+												</listhead>
+											</listbox>
+				    					</n:div>
+				    				</n:form>
+				    				<n:form class="form-horizontal" role="form" hflex="true">
+				    					<n:div class="form-group">
+				    						<grid>
+			    								<columns>
+													<column width="150px"/>
+													<column />
+												</columns>
+												<rows>
+													<row visible="false">
+							                            <label style="font-weight:bold" >Balance</label>
+						                                <label style="font-weight:bold" id="lblFirst"/>
+													</row>
+													<row>
+							                            <label style="font-weight:bold">Debet</label>
+						                                <label style="font-weight:bold" id="lblDebet"/>
+													</row>
+													<row>
+							                            <label style="font-weight:bold">Credit</label>
+			                                			<label style="font-weight:bold" id="lblCredit"/>
+													</row>
+													<row>
+							                            <label style="font-weight:bold">Balance</label>
+			                                			<label style="font-weight:bold" id="lblLast"/>
+													</row>
+												</rows>
+			    							</grid>
+				    					</n:div>
+				    					<n:div class="form-group">
+				                        	<n:div class="col-md-1 control-label">
+				                                <button id="btnPrint" label="Print" width="80px" class="btn btn-info btn-rounded active" iconSclass="fa fa-print"/>
+				                            </n:div>
+				                            <n:div class="col-md-1 control-label">
+				                                <button id="btnDownload" label="Download" width="100px" class="btn btn-info btn-rounded active" iconSclass="fa fa-download"/>
+				                            </n:div>
+				                        </n:div>
+				    				</n:form>
+			    				</n:div>
+			    			</n:div>
+			    		</n:div>
+		    		</n:div>
+	    		</n:div>
+	    	</center>
+	    </borderlayout>
+	</window>
+</zk>
